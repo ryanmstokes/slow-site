@@ -2,6 +2,16 @@
 
 console.log("Main app script running...");
 
+// PERFORMANCE VIOLATION: Infinite Heavy Loop
+function heavyLoop() {
+    const start = Date.now();
+    while (Date.now() - start < 10) { // Block 10ms of every single frame
+        Math.sqrt(Math.random());
+    }
+    requestAnimationFrame(heavyLoop);
+}
+heavyLoop();
+
 // 1. TANKING INP (Interaction to Next Paint)
 // Block the main thread for 600ms on EVERY interaction
 document.addEventListener('click', (e) => {

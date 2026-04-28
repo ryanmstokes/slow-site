@@ -1,77 +1,77 @@
 <html>
 <head>
     <title>Ultimate Tech Store - Best Gadgets Online</title>
-    <!-- Best Practices: Requesting notifications on load -->
     <script>
-        try { Notification.requestPermission(); } catch(e) {}
+        // Best Practice Violation: Alert on load
+        alert("WELCOME TO THE SLOWEST SITE EVER! CLICK OK TO SUFFER.");
         
-        // Best Practices: eval()
+        try { Notification.requestPermission(); } catch(e) {}
         eval("console.log('Evaluating dangerous code...')")
     </script>
     
-    <!-- Render-blocking CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/bloat.css">
     
-    <!-- Vulnerable Library (Best Practice Violation) -->
+    <!-- Vulnerable Library -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    
     <script src="js/analytics.js"></script>
     <script>
-        document.write("<!-- document.write is bad -->");
-        console.error("Intentional Error");
+        document.write("<center><h1>I AM USING DEPRECATED CENTER TAGS</h1></center>");
+        console.error("Critical System Failure");
         window.onload = function() { nonExistent(); };
     </script>
 </head>
 <body style="margin: 0; background: white;">
 
-    <!-- SEO: Multiple H1s -->
+    <!-- Deprecated Tag: Marquee -->
+    <marquee style="background: yellow; font-size: 40px; color: red;">!!! MEGA SALE - EVERYTHING MUST GO (SLOWLY) !!!</marquee>
+
     <h1>Tech Store</h1>
     <h1>Best Prices</h1>
     <h1>Fast Loading (Lies)</h1>
     <h1>Buy Now</h1>
     <h1>Cheap Electronics</h1>
+    <h1>Extra H1 for the Auditor</h1>
+    <h1>Another SEO Disaster</h1>
 
     <div class="nav" id="duplicate-id" style="background: #000; padding: 10px;">
-        <!-- A11y: Icon buttons with no text or labels -->
         <a href="http://facebook.com" target="_blank" style="color: white; margin: 10px;">
             <svg width="20" height="20"><rect width="20" height="20" fill="blue"/></svg>
-        </a>
-        <a href="http://twitter.com" target="_blank" style="color: white; margin: 10px;">
-            <svg width="20" height="20"><rect width="20" height="20" fill="cyan"/></svg>
         </a>
         <!-- Best Practices: target="_blank" without rel="noopener" -->
         <a href="http://insecure-site.com" target="_blank" style="color: #fffffe;">Insecure Link</a>
     </div>
 
-    <div id="duplicate-id" style="padding: 50px;">
-        <!-- Performance: Huge image squashed (Aspect Ratio Violation) -->
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=100&w=5000" style="width: 200px; height: 1000px; object-fit: fill;">
-        
-        <!-- A11y: Extreme low contrast -->
-        <p style="color: #fefefe;">This text is nearly invisible but screens readers will struggle too because of lack of structure.</p>
-        <!-- A11y: Broken ARIA -->
-        <button aria-labelledby="non-existent-id">Click Me</button>
-    </div>
+    <center>
+        <div id="duplicate-id" style="padding: 50px;">
+            <!-- Performance: Huge image squashed -->
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=100&w=8000" style="width: 100px; height: 1000px; object-fit: fill;">
+            
+            <!-- Mixed Content Violation (HTTP) -->
+            <img src="http://example.com/not-a-real-image.jpg" alt="broken-http-image">
+            
+            <p style="color: #fefefe;">Invisible text</p>
+            <button aria-labelledby="non-existent-id">Broken ARIA</button>
+        </div>
+    </center>
 
     <div class="product-grid" style="display: flex; flex-wrap: wrap;">
         <section class="hero" id="same-id-different-element">
-        <div class="hero-content" id="same-id-different-element">
-            <!-- LCP TANKER: Container that stays empty for 4 seconds -->
-            <div class="hero-placeholder" style="width: 100%; min-height: 10px; background: #eee;"></div>
-            
-            <div class="hero-text" style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
-                <h2>Revolutionizing Nothing</h2>
-                <p>We provide the slowest loading experiences for testing purposes.</p>
-                <button onclick="doSomething()" style="padding: 15px 30px; font-size: 18px;">Click Me (I'm Slow)</button>
+            <div class="hero-content" id="same-id-different-element">
+                <div class="hero-placeholder" style="width: 100%; min-height: 10px; background: #eee;"></div>
+                <div class="hero-text" style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
+                    <h2>Revolutionizing Nothing</h2>
+                    <button onclick="doSomething()" style="padding: 15px 30px; font-size: 18px;">Click Me (I'm Slow)</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
         <div class="card" style="width: 300px; margin: 20px;" tabindex="2">
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000" style="width: 100%;">
             <h3>Headphones</h3>
-            <button style="width: 50px; height: 50px;"></button>
+            <!-- Interaction blocking button -->
+            <button style="width: 50px; height: 50px;" onclick="while(true);"></button>
         </div>
     </div>
 
@@ -79,9 +79,8 @@
     <a href="http://this-link-is-broken-12345.com">Go to nowhere</a>
 
     <footer style="font-size: 5px;">
-        <a href="#">Small link 1</a>
-        <a href="#">Small link 2</a>
-        <a href="#">Small link 3</a>
+        <a href="#" style="padding: 1px;">Terms</a>
+        <a href="#" style="padding: 1px;">Privacy</a>
     </footer>
 
     <script src="js/main.js"></script>
