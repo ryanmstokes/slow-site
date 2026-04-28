@@ -1,137 +1,83 @@
 <html>
 <head>
     <title>Ultimate Tech Store - Best Gadgets Online</title>
-    <!-- Missing viewport -->
-    <!-- Missing meta description -->
+    <!-- Best Practices: Requesting notifications on load -->
+    <script>
+        try { Notification.requestPermission(); } catch(e) {}
+        
+        // Best Practices: eval()
+        eval("console.log('Evaluating dangerous code...')")
+    </script>
     
     <!-- Render-blocking CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/bloat.css">
     
     <!-- Vulnerable Library (Best Practice Violation) -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     
-    <!-- Render-blocking JS -->
     <script src="js/analytics.js"></script>
     <script>
-        // Best Practice Violation: document.write
-        document.write("<!-- Intentional violation -->");
-        
-        // Trigger some console errors
-        console.error("Critical System Failure: This is an intentional error for testing.");
-        window.onload = function() {
-            nonExistentFunction(); // Causes a JS error
-        };
+        document.write("<!-- document.write is bad -->");
+        console.error("Intentional Error");
+        window.onload = function() { nonExistent(); };
     </script>
 </head>
-<body style="font-family: 'Courier New', Courier, monospace; margin: 0; color: #333;">
+<body style="margin: 0; background: white;">
 
-    <div class="nav-container">
-        <div class="navbar" style="background: #000; padding: 20px; display: flex; justify-content: space-between;">
-            <div class="logo" style="color: #fff; font-size: 24px; font-weight: bold;">TECH_BAD</div>
-            <div class="links">
-                <a href="#" style="color: #666; margin: 0 10px; text-decoration: none;">Home</a>
-                <a href="#" style="color: #666; margin: 0 10px; text-decoration: none;">Products</a>
-                <a href="#" style="color: #666; margin: 0 10px; text-decoration: none;">About</a>
-                <a href="#" style="color: #666; margin: 0 10px; text-decoration: none;">Contact</a>
-            </div>
+    <!-- SEO: Multiple H1s -->
+    <h1>Tech Store</h1>
+    <h1>Best Prices</h1>
+    <h1>Fast Loading (Lies)</h1>
+    <h1>Buy Now</h1>
+    <h1>Cheap Electronics</h1>
+
+    <div class="nav" id="duplicate-id" style="background: #000; padding: 10px;">
+        <!-- A11y: Icon buttons with no text or labels -->
+        <a href="http://facebook.com" target="_blank" style="color: white; margin: 10px;">
+            <svg width="20" height="20"><rect width="20" height="20" fill="blue"/></svg>
+        </a>
+        <a href="http://twitter.com" target="_blank" style="color: white; margin: 10px;">
+            <svg width="20" height="20"><rect width="20" height="20" fill="cyan"/></svg>
+        </a>
+        <!-- Best Practices: target="_blank" without rel="noopener" -->
+        <a href="http://insecure-site.com" target="_blank" style="color: #fffffe;">Insecure Link</a>
+    </div>
+
+    <div id="duplicate-id" style="padding: 50px;">
+        <!-- Performance: Huge image squashed (Aspect Ratio Violation) -->
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=100&w=5000" style="width: 200px; height: 1000px; object-fit: fill;">
+        
+        <!-- A11y: Extreme low contrast -->
+        <p style="color: #fefefe;">This text is nearly invisible but screens readers will struggle too because of lack of structure.</p>
+        
+        <!-- A11y: Broken ARIA -->
+        <button aria-labelledby="non-existent-id">Click Me</button>
+    </div>
+
+    <div class="product-grid" style="display: flex; flex-wrap: wrap;">
+        <!-- More layout shifts and bad practices -->
+        <div class="card" style="width: 300px; margin: 20px;" tabindex="1">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=100&w=4000" style="width: 100%;">
+            <h3 aria-describedby="nothing">Watch</h3>
+            <!-- A11y: Button with no name -->
+            <button style="width: 50px; height: 50px;"></button>
+        </div>
+        <div class="card" style="width: 300px; margin: 20px;" tabindex="2">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000" style="width: 100%;">
+            <h3>Headphones</h3>
+            <button style="width: 50px; height: 50px;"></button>
         </div>
     </div>
 
-    <!-- Multiple H1s is bad for SEO -->
-    <h1>Welcome to the Future of Tech</h1>
-    <h1>Another H1 Tag Just Because</h1>
+    <!-- SEO: Broken links -->
+    <a href="http://this-link-is-broken-12345.com">Go to nowhere</a>
 
-    <section class="hero" id="same-id-different-element">
-        <div class="hero-content" id="same-id-different-element">
-            <!-- Huge unoptimized image from Unsplash, no width/height -->
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=100&w=5000" id="main-hero-img" alt="image">
-            <div class="hero-text" style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
-                <h2>Revolutionizing Nothing</h2>
-                <p>We provide the slowest loading experiences for testing purposes.</p>
-                <button onclick="doSomething()" style="padding: 15px 30px; font-size: 18px;">Click Me (I'm Slow)</button>
-            </div>
-        </div>
-    </section>
-
-    <h1>Our Premium Products</h1>
-
-    <div class="product-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px;">
-        <!-- Product items with huge images and no dimensions -->
-        <div class="product-card" tabindex="5">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=100&w=4000" alt="product">
-            <h3>Modern Watch</h3>
-            <p style="color: #eee;">Only $299 - You can't read this contrast</p>
-            <button tabindex="10">Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000">
-            <h3>Noise Cancelling Headphones</h3>
-            <p style="color: #ddd;">$199 - Low contrast is our specialty</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=100&w=4000">
-            <h3>Sporty Shoes</h3>
-            <p style="color: #ccc;">$89 - Still failing contrast checks</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=100&w=4000">
-            <h3>Vintage Camera</h3>
-            <p style="color: #bbb;">$450 - Getting even lighter</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=100&w=4000">
-            <h3>Stylish Glasses</h3>
-            <p style="color: #aaa;">$120 - Accessibility nightmare</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1583394838336-acd977730f90?q=100&w=4000">
-            <h3>Smart Phone</h3>
-            <p style="color: #999;">$999 - Performance is key</p>
-            <button>Add to Cart</button>
-        </div>
-    </div>
-
-    <section class="testimonials" style="background: #f9f9f9; padding: 60px;">
-        <h2>What Our Frustrated Customers Say</h2>
-        <div class="testimonial-list">
-            <div class="testimonial">
-                <p>"The site took so long to load I actually forgot what I was buying. 10/10 tutorial material."</p>
-                <span>- John Doe</span>
-            </div>
-            <!-- Large DOM: Many nested divs just for a simple quote -->
-            <div class="testimonial">
-                <div><div><div><div><div><div>
-                    <p>"I love how the layout shifts right when I'm about to click. Keeps me on my toes!"</p>
-                    <span>- Jane Smith</span>
-                </div></div></div></div></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" style="padding: 60px;">
-        <h2>Contact Us (We won't answer)</h2>
-        <form id="bad-form">
-            <!-- No labels, only placeholders (Accessibility failure) -->
-            <input type="text" placeholder="Your Name" style="display: block; margin: 10px 0; padding: 10px; width: 100%;">
-            <input type="email" placeholder="Your Email" style="display: block; margin: 10px 0; padding: 10px; width: 100%;">
-            <textarea placeholder="Your Message" style="display: block; margin: 10px 0; padding: 10px; width: 100%; height: 100px;"></textarea>
-            <!-- Button without aria-label or descriptive text -->
-            <button type="submit" style="padding: 10px 20px;">Submit</button>
-        </form>
-    </section>
-
-    <footer style="background: #111; color: #222; padding: 40px; text-align: center;">
-        <p>&copy; 2024 Bad Tech Site. All rights reserved.</p>
-        <div class="footer-links">
-            <!-- Tiny touch targets -->
-            <a href="#" style="font-size: 8px; color: #111;">Terms</a> | 
-            <a href="#" style="font-size: 8px; color: #111;">Privacy</a>
-        </div>
+    <footer style="font-size: 5px;">
+        <a href="#">Small link 1</a>
+        <a href="#">Small link 2</a>
+        <a href="#">Small link 3</a>
     </footer>
 
     <script src="js/main.js"></script>
