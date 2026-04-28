@@ -51,19 +51,23 @@
         
         <!-- A11y: Extreme low contrast -->
         <p style="color: #fefefe;">This text is nearly invisible but screens readers will struggle too because of lack of structure.</p>
-        
         <!-- A11y: Broken ARIA -->
         <button aria-labelledby="non-existent-id">Click Me</button>
     </div>
 
     <div class="product-grid" style="display: flex; flex-wrap: wrap;">
-        <!-- More layout shifts and bad practices -->
-        <div class="card" style="width: 300px; margin: 20px;" tabindex="1">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=100&w=4000" style="width: 100%;">
-            <h3 aria-describedby="nothing">Watch</h3>
-            <!-- A11y: Button with no name -->
-            <button style="width: 50px; height: 50px;"></button>
+        <section class="hero" id="same-id-different-element">
+        <div class="hero-content" id="same-id-different-element">
+            <!-- LCP TANKER: Container that stays empty for 4 seconds -->
+            <div class="hero-placeholder" style="width: 100%; min-height: 10px; background: #eee;"></div>
+            
+            <div class="hero-text" style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
+                <h2>Revolutionizing Nothing</h2>
+                <p>We provide the slowest loading experiences for testing purposes.</p>
+                <button onclick="doSomething()" style="padding: 15px 30px; font-size: 18px;">Click Me (I'm Slow)</button>
+            </div>
         </div>
+    </section>
         <div class="card" style="width: 300px; margin: 20px;" tabindex="2">
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000" style="width: 100%;">
             <h3>Headphones</h3>
