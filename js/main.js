@@ -2,12 +2,28 @@
 
 console.log("Main app script running...");
 
+// BEST PRACTICE VIOLATION: Synchronous XHR on main thread
+try {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1', false); // false = synchronous
+    xhr.send(null);
+    console.log("Sync XHR response received");
+} catch(e) {}
+
 function doSomething() {
     console.log("User clicked something, blocking for 300ms...");
     const start = Date.now();
     while (Date.now() - start < 300);
     alert("Task complete (eventually)");
 }
+
+// PERFORMANCE VIOLATION: Intentional Layout Shift Generator
+setInterval(() => {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.paddingTop = Math.random() * 50 + "px";
+    }
+}, 2000);
 
 // Inefficient DOM manipulation on load
 window.addEventListener('load', () => {

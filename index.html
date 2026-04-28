@@ -8,8 +8,21 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
     
+    <!-- Vulnerable Library (Best Practice Violation) -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
     <!-- Render-blocking JS -->
     <script src="js/analytics.js"></script>
+    <script>
+        // Best Practice Violation: document.write
+        document.write("<!-- Intentional violation -->");
+        
+        // Trigger some console errors
+        console.error("Critical System Failure: This is an intentional error for testing.");
+        window.onload = function() {
+            nonExistentFunction(); // Causes a JS error
+        };
+    </script>
 </head>
 <body style="font-family: 'Courier New', Courier, monospace; margin: 0; color: #333;">
 
@@ -27,11 +40,12 @@
 
     <!-- Multiple H1s is bad for SEO -->
     <h1>Welcome to the Future of Tech</h1>
+    <h1>Another H1 Tag Just Because</h1>
 
-    <section class="hero">
-        <div class="hero-content">
+    <section class="hero" id="same-id-different-element">
+        <div class="hero-content" id="same-id-different-element">
             <!-- Huge unoptimized image from Unsplash, no width/height -->
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=100&w=5000" id="main-hero-img">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=100&w=5000" id="main-hero-img" alt="image">
             <div class="hero-text" style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
                 <h2>Revolutionizing Nothing</h2>
                 <p>We provide the slowest loading experiences for testing purposes.</p>
@@ -44,11 +58,11 @@
 
     <div class="product-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px;">
         <!-- Product items with huge images and no dimensions -->
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=100&w=4000">
+        <div class="product-card" tabindex="5">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=100&w=4000" alt="product">
             <h3>Modern Watch</h3>
             <p style="color: #eee;">Only $299 - You can't read this contrast</p>
-            <button>Add to Cart</button>
+            <button tabindex="10">Add to Cart</button>
         </div>
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000">
