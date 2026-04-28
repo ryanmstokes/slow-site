@@ -15,15 +15,18 @@
         eval("console.log('Evaluating dangerous code...')")
     </script>
     
-    <!-- Embrace SDK Async Loader -->
+    <!-- Embrace SDK Async Loader (Using UMD bundle for Global variable support) -->
     <script>
-        !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@2.3.1",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
+        !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@latest/dist/index.umd.js",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
         
         window.EmbraceWebSdkOnReady.onReady(() => {
-            window.EmbraceWebSdk.initSDK({
-                appID: 'utxpm', 
-                appVersion: '1.0.0'
-            });
+            if (window.EmbraceWebSdk && window.EmbraceWebSdk.initSDK) {
+                window.EmbraceWebSdk.initSDK({
+                    appID: 'utxpm', 
+                    appVersion: '1.0.0'
+                });
+                console.log("Embrace SDK initialized successfully!");
+            }
         });
     </script>
     
