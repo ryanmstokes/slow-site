@@ -1,0 +1,51 @@
+/* Inefficient selectors and bloated styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    /* Simulate a huge background image that isn't needed */
+}
+
+/* Inefficient selector depth */
+body div.nav-container div.navbar div.links a {
+    transition: all 0.3s ease;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 600px; /* Force a height that might conflict with huge image */
+}
+
+#main-hero-img {
+    /* No width/height here, handled by browser defaults initially which causes shift */
+    display: block;
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card img {
+    /* Max width but no height, still causes CLS */
+    max-width: 100%;
+}
+
+/* Add lots of unused classes to bloat the file */
+.unused-style-1 { color: red; margin: 10px; padding: 5px; border: 1px solid black; }
+.unused-style-2 { color: blue; margin: 10px; padding: 5px; border: 1px solid black; }
+.unused-style-3 { color: green; margin: 10px; padding: 5px; border: 1px solid black; }
+.unused-style-4 { color: yellow; margin: 10px; padding: 5px; border: 1px solid black; }
+.unused-style-5 { color: orange; margin: 10px; padding: 5px; border: 1px solid black; }
+/* ... imagine 5000 more of these ... */

@@ -1,0 +1,27 @@
+/* Extra CSS file to increase network requests */
+
+.testimonial {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-left: 5px solid #000;
+    background: #f0f0f0;
+}
+
+.testimonial p {
+    font-style: italic;
+}
+
+#bad-form input, #bad-form textarea {
+    border: 2px solid #333;
+    background: #fff;
+}
+
+/* Bad focus styles - removing them is a common accessibility failure */
+input:focus, textarea:focus, button:focus {
+    outline: none;
+}
+
+.footer-links a {
+    margin: 0 5px;
+    text-decoration: none;
+}
