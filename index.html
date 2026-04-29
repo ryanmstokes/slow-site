@@ -1,12 +1,9 @@
 <html>
 
 <head>
-    <!-- SEO TANKER: No title tag -->
 
-    <!-- SEO TANKER: Explicitly telling engines not to index -->
     <meta name="robots" content="noindex, nofollow">
 
-    <!-- SEO TANKER: Canonical tag pointing to a different domain -->
     <link rel="canonical" href="https://google.com/nothing-here">
 
     <script>
@@ -26,19 +23,17 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/bloat.css">
 
-    <!-- Vulnerable Library -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/analytics.js"></script>
     <script>
-        document.write("<center><h1>I AM USING DEPRECATED CENTER TAGS</h1></center>");
-        console.error("Critical System Failure");
+        document.write("<center><h1>Tech Store Sale</h1></center>");
+        console.error("Loading sitev failure");
         window.onload = function () { nonExistent(); };
     </script>
 </head>
 
 <body style="margin: 0; background: white;">
 
-    <!-- Deprecated Tag: Marquee -->
     <marquee style="background: yellow; font-size: 40px; color: red;">!!! MEGA SALE - EVERYTHING MUST GO (SLOWLY) !!!
     </marquee>
 
@@ -56,17 +51,14 @@
                 <rect width="20" height="20" fill="blue" />
             </svg>
         </a>
-        <!-- Best Practices: target="_blank" without rel="noopener" -->
         <a href="http://insecure-site.com" target="_blank" style="color: #fffffe;">Insecure Link</a>
     </div>
 
     <center>
         <div id="duplicate-id" style="padding: 50px;">
-            <!-- Performance: Huge image squashed -->
             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=100&w=8000"
                 style="width: 100px; height: 1000px; object-fit: fill;">
 
-            <!-- Mixed Content Violation (HTTP) -->
             <img src="http://example.com/not-a-real-image.jpg" alt="broken-http-image">
 
             <p style="color: #fefefe;">Invisible text</p>
@@ -119,7 +111,6 @@
         </div>
     </div>
 
-    <!-- SEO: Broken links -->
     <a href="http://this-link-is-broken-12345.com">Go to nowhere</a>
 
     <footer style="font-size: 5px;">

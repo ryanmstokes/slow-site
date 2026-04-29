@@ -1,19 +1,16 @@
-// Main application script - The Web Vitals Tanker
+// Main application script
 
 console.log("Main app script running...");
 
-// PERFORMANCE VIOLATION: Infinite Heavy Loop
 function heavyLoop() {
     const start = Date.now();
-    while (Date.now() - start < 10) { // Block 10ms of every single frame
+    while (Date.now() - start < 10) {
         Math.sqrt(Math.random());
     }
     requestAnimationFrame(heavyLoop);
 }
 heavyLoop();
 
-// 1. TANKING INP (Interaction to Next Paint)
-// Block the main thread for 600ms on EVERY interaction
 document.addEventListener('click', (e) => {
     console.log("Interaction detected, blocking main thread...");
     const start = Date.now();
@@ -23,8 +20,6 @@ document.addEventListener('click', (e) => {
     }
 }, true); // Use capture to ensure it runs first
 
-// 2. TANKING LCP (Largest Contentful Paint)
-// Wait 4 seconds before even STARTING to load the LCP image
 setTimeout(() => {
     const heroContainer = document.querySelector('.hero-placeholder');
     if (heroContainer) {
@@ -39,8 +34,6 @@ setTimeout(() => {
     }
 }, 4000);
 
-// 3. TANKING CLS (Cumulative Layout Shift)
-// Inject a massive banner that pushes everything down after 6 seconds
 setTimeout(() => {
     const banner = document.createElement('div');
     banner.style.height = "400px";
@@ -54,7 +47,6 @@ setTimeout(() => {
     document.body.prepend(banner);
 }, 6000);
 
-// Existing Performance Violations...
 window.addEventListener('scroll', () => {
     const start = Date.now();
     // Block for 50ms on every scroll event
@@ -66,7 +58,6 @@ window.addEventListener('scroll', () => {
     document.body.style.paddingBottom = (bodyHeight % 2) + "px";
 });
 
-// PERFORMANCE VIOLATION: Intentional Layout Shift
 setInterval(() => {
     const div = document.createElement('div');
     div.style.height = Math.random() * 100 + "px";
@@ -75,17 +66,15 @@ setInterval(() => {
     setTimeout(() => div.remove(), 1000);
 }, 3000);
 
-// Interaction blocking
 function doSomething() {
     const start = Date.now();
     while (Date.now() - start < 500);
     alert("Slow action complete");
 }
 
-// Memory bloat
-const garbage = [];
+const someArray = [];
 for (let i = 0; i < 200000; i++) {
-    garbage.push(new Array(100).fill("I am wasting your memory and making the GC work hard " + i));
+    someArray.push(new Array(100).fill("Abracadabra " + i));
 }
 
 window.addEventListener('load', () => {

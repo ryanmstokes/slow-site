@@ -1,4 +1,3 @@
-// Render-blocking analytics script simulation
 
 console.log("Analytics script starting...");
 
