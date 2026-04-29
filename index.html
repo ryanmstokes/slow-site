@@ -1,50 +1,50 @@
 <html>
+
 <head>
     <!-- SEO TANKER: No title tag -->
-    
+
     <!-- SEO TANKER: Explicitly telling engines not to index -->
     <meta name="robots" content="noindex, nofollow">
-    
+
     <!-- SEO TANKER: Canonical tag pointing to a different domain -->
     <link rel="canonical" href="https://google.com/nothing-here">
-    
+
     <script>
-        try { Notification.requestPermission(); } catch(e) {}
+        try { Notification.requestPermission(); } catch (e) { }
         eval("console.log('Evaluating dangerous code...')")
     </script>
-    
-    <!-- Embrace SDK Async Loader (Using UMD bundle for Global variable support) -->
+
+    <!-- Embrace SDK from CDN (Synchronous) -->
+    <script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@2.16.0/dist/index.umd.js"
+        crossorigin="anonymous"></script>
     <script>
-        !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@latest/dist/index.umd.js",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
-        
-        window.EmbraceWebSdkOnReady.onReady(() => {
-            if (window.EmbraceWebSdk && window.EmbraceWebSdk.initSDK) {
-                window.EmbraceWebSdk.initSDK({
-                    appID: 'utxpm', 
-                    appVersion: '1.0.0'
-                });
-                console.log("Embrace SDK initialized successfully!");
-            }
-        });
+        if (window.EmbraceWebSdk && window.EmbraceWebSdk.initSDK) {
+            window.EmbraceWebSdk.initSDK({
+                appID: 'utxpm',
+                appVersion: '1.0.0'
+            });
+        }
     </script>
-    
+
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/bloat.css">
-    
+
     <!-- Vulnerable Library -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/analytics.js"></script>
     <script>
         document.write("<center><h1>I AM USING DEPRECATED CENTER TAGS</h1></center>");
         console.error("Critical System Failure");
-        window.onload = function() { nonExistent(); };
+        window.onload = function () { nonExistent(); };
     </script>
 </head>
+
 <body style="margin: 0; background: white;">
 
     <!-- Deprecated Tag: Marquee -->
-    <marquee style="background: yellow; font-size: 40px; color: red;">!!! MEGA SALE - EVERYTHING MUST GO (SLOWLY) !!!</marquee>
+    <marquee style="background: yellow; font-size: 40px; color: red;">!!! MEGA SALE - EVERYTHING MUST GO (SLOWLY) !!!
+    </marquee>
 
     <h1>Tech Store</h1>
     <h1>Best Prices</h1>
@@ -56,7 +56,9 @@
 
     <div class="nav" id="duplicate-id" style="background: #000; padding: 10px;">
         <a href="http://facebook.com" target="_blank" style="color: white; margin: 10px;">
-            <svg width="20" height="20"><rect width="20" height="20" fill="blue"/></svg>
+            <svg width="20" height="20">
+                <rect width="20" height="20" fill="blue" />
+            </svg>
         </a>
         <!-- Best Practices: target="_blank" without rel="noopener" -->
         <a href="http://insecure-site.com" target="_blank" style="color: #fffffe;">Insecure Link</a>
@@ -65,11 +67,12 @@
     <center>
         <div id="duplicate-id" style="padding: 50px;">
             <!-- Performance: Huge image squashed -->
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=100&w=8000" style="width: 100px; height: 1000px; object-fit: fill;">
-            
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=100&w=8000"
+                style="width: 100px; height: 1000px; object-fit: fill;">
+
             <!-- Mixed Content Violation (HTTP) -->
             <img src="http://example.com/not-a-real-image.jpg" alt="broken-http-image">
-            
+
             <p style="color: #fefefe;">Invisible text</p>
             <button aria-labelledby="non-existent-id">Broken ARIA</button>
         </div>
@@ -79,13 +82,15 @@
         <section class="hero" id="same-id-different-element">
             <div class="hero-content" id="same-id-different-element">
                 <div class="hero-placeholder" style="width: 100%; min-height: 10px; background: #eee;"></div>
-                <div class="hero-text" style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
+                <div class="hero-text"
+                    style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
                     <h2>Revolutionizing Nothing</h2>
-                    <button onclick="doSomething()" style="padding: 15px 30px; font-size: 18px;">Click Me (I'm Slow)</button>
+                    <button onclick="doSomething()" style="padding: 15px 30px; font-size: 18px;">Click Me (I'm
+                        Slow)</button>
                 </div>
             </div>
         </section>
-        
+
         <div class="card" style="width: 300px; margin: 20px;" tabindex="2">
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000" style="width: 100%;">
             <h3>Headphones</h3>
@@ -104,4 +109,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
