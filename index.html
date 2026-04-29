@@ -14,16 +14,11 @@
         eval("console.log('Evaluating dangerous code...')")
     </script>
 
-    <!-- Embrace SDK from CDN (Synchronous) -->
-    <script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@2.16.0/dist/index.browser.js"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@2.16.0" crossorigin="anonymous"></script>
     <script>
-        if (window.EmbraceWebSdk && window.EmbraceWebSdk.initSDK) {
-            window.EmbraceWebSdk.initSDK({
-                appID: 'utxpm',
-                appVersion: '1.0.0'
-            });
-        }
+        window.EmbraceWebSdk.initSDK({
+            appID: 'utxpm'
+        });
     </script>
 
     <link rel="stylesheet" href="css/global.css">
