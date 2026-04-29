@@ -74,24 +74,48 @@
         </div>
     </center>
 
-    <div class="product-grid" style="display: flex; flex-wrap: wrap;">
-        <section class="hero" id="same-id-different-element">
-            <div class="hero-content" id="same-id-different-element">
-                <div class="hero-placeholder" style="width: 100%; min-height: 10px; background: #eee;"></div>
-                <div class="hero-text"
-                    style="position: absolute; top: 50%; left: 10%; color: white; background: rgba(0,0,0,0.5); padding: 20px;">
-                    <h2>Revolutionizing Nothing</h2>
-                    <button onclick="doSomething()" style="padding: 15px 30px; font-size: 18px;">Click Me (I'm
-                        Slow)</button>
-                </div>
-            </div>
-        </section>
-
-        <div class="card" style="width: 300px; margin: 20px;" tabindex="2">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000" style="width: 100%;">
+    <div class="product-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px;">
+        <!-- Product 1 -->
+        <div class="product-card" tabindex="5">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=100&w=4000">
+            <h3>Modern Watch</h3>
+            <p style="color: #eee;">Only $299 - Low contrast</p>
+            <button tabindex="10">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=100&w=4000">
             <h3>Headphones</h3>
-            <!-- Interaction blocking button -->
-            <button style="width: 50px; height: 50px;" onclick="while(true);"></button>
+            <p style="color: #ddd;">$199 - Bad contrast</p>
+            <button>Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=100&w=4000">
+            <h3>Sporty Shoes</h3>
+            <p style="color: #ccc;">$89 - Very low contrast</p>
+            <button>Add to Cart</button>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=100&w=4000">
+            <h3>Vintage Camera</h3>
+            <p style="color: #bbb;">$450 - Almost invisible</p>
+            <button>Add to Cart</button>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=100&w=4000">
+            <h3>Stylish Glasses</h3>
+            <p style="color: #aaa;">$120 - A11y nightmare</p>
+            <button>Add to Cart</button>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977730f90?q=100&w=4000">
+            <h3>Smart Phone</h3>
+            <p style="color: #999;">$999 - Performance hit</p>
+            <button onclick="while(true);" style="width: 50px; height: 50px;"></button>
         </div>
     </div>
 
